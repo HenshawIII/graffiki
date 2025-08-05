@@ -11,7 +11,7 @@ const AboutPage = () => {
       {/* Full Screen Header Section */}
       <section className="md:h-screen h-[50vh] flex px-4 pb-20 md:pb-0 items-end justify-start overflow-x-hidden">
         <div className="text-left">
-          <h1 className="md:text-4xl lg:text-6xl md:text-[10rem] lg:text-[12rem] font-bold leading-tight">
+          <h1 className="text-4xl lg:text-6xl md:text-[10rem] lg:text-[12rem] font-bold leading-tight">
             Curious <br />
             and Driven.
           </h1>
@@ -25,7 +25,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left  md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold">
+              <h2 className="whitespace-nowrap text-xl md:text-xl leading-tight text-[#ffffff] font-extrabold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
             </div>
@@ -40,7 +40,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold">
+              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're a team
               </h2>
             </div>
@@ -63,7 +63,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold">
+              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
             </div>
@@ -78,7 +78,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold">
+              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're a team
               </h2>
             </div>
@@ -102,7 +102,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold">
+              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
             </div>
@@ -115,7 +115,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <div className='text-4xl max-w-5xl text-left leading-tight p-6  bg-black font-fahkwang font-bold overflow-x-hidden'>
+      <div className='md:text-4xl text-2xl max-w-5xl text-left leading-tight p-6  bg-black font-fahkwang font-bold overflow-x-hidden'>
       We are always happy to meet new people. Give us a call <span className='text-slate-700 font-bold'>+234 813 300 0000</span>, email <span className='text-slate-700 font-bold'>hello@graffikistudio.com</span> or visit us.
       </div>
   </>
