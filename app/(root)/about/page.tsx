@@ -25,7 +25,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left  md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap text-xl md:text-xl leading-tight text-[#ffffff] font-extrabold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
+              <h2 className="whitespace-nowrap  md:text-xl leading-tight text-[#ffffff] font-extrabold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
             </div>
@@ -40,12 +40,12 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
+              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're a team
               </h2>
             </div>
             <div className='col-span-3'>
-              <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]">
+              <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]"> 
                 We are a group of individual characters that enjoy working together. We have a common spirit that we hold dear. The studio is formed by a diverse group of nationalities, personalities, and specialists; from creative coders to sound designers, project managers, motion designers, strategists and visual designers. Collaboration is at the core of how we work, in the studio and together with clients.
               </p>
             </div>
@@ -63,7 +63,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
+              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
             </div>
@@ -78,7 +78,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
+              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're a team
               </h2>
             </div>
@@ -102,7 +102,7 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
-              <h2 className="whitespace-nowrap text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
+              <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
             </div>
