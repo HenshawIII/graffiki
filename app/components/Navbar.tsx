@@ -28,9 +28,9 @@ const Navbar = () => {
   }, [isSidebarOpen]);
 
   const navLinks = [
-    { href: '/work', label: 'Work' },
-    { href: '/about', label: 'About' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/work', label: 'Our Work' },
+    { href: '/about', label: 'About Us' },
+    { href: '/blog', label: 'Editorial' },
     { href: '/contact', label: 'Contact Us' },
   ];
 
@@ -59,7 +59,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation links on the right */}
-        <div className="flex w-[40%] justify-around text-2xl">
+        <div className="flex w-[50%] justify-around gap-6  text-lg">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -163,10 +163,10 @@ const Navbar = () => {
           {/* Navigation links positioned at bottom left */}
           <div className="absolute bottom-8 left-8">
             <div className="space-y-6">
-              <Link href={"/"} className={`block text-5xl md:text-5xl font-light transition-all duration-500 animate-slide-in ${
+              <Link href={"/"} className={`block text-3xl md:text-3xl font-light transition-all duration-500 animate-slide-in ${
                 isActive('/') 
                   ? 'text-[#F4C42E] font-semibold' 
-                  : 'text-gray-300 hover:text-white hover:font-semibold'
+                  : 'text-gray-300 hover:text-white font-bold hover:font-semibold'
               }`}
                   onClick={toggleSidebar}
                 >Home</Link>
@@ -174,10 +174,10 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`block text-5xl md:text-5xl font-light transition-all duration-500 animate-slide-in ${
+                  className={`block text-3xl md:text-3xl font-light transition-all duration-500 animate-slide-in ${
                     isActive(link.href) 
-                      ? 'text-[#F4C42E] font-semibold' 
-                      : 'text-gray-300 hover:text-white hover:font-semibold'
+                      ? 'text-[#F4C42E] ' 
+                      : 'text-gray-300 hover:text-white font-bold hover:font-semibold'
                   }`}
                   style={{
                     animationDelay: `${index * 0.2}s`,

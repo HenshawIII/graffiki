@@ -110,7 +110,7 @@ const People = () => {
       {/* Horizontal Scroller Container */}
       <div 
         ref={scrollRef}
-        className="w-full overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+        className="w-full overflow-x-auto cursor-grab active:cursor-grabbing no-scrollbar"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
@@ -155,11 +155,20 @@ const People = () => {
 
       {/* Custom scrollbar styles */}
       <style jsx>{`
-        .scrollbar-hide {
+        .no-scrollbar {
           -ms-overflow-style: none;
           scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
         }
-        .scrollbar-hide::-webkit-scrollbar {
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+        }
+        .no-scrollbar::-webkit-scrollbar-track {
+          display: none;
+        }
+        .no-scrollbar::-webkit-scrollbar-thumb {
           display: none;
         }
       `}</style>

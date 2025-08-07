@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import AnimatedContent from '@/app/components/AnimatedContent'
 
 const ContactPage = () => {
   return (
@@ -16,25 +17,39 @@ const ContactPage = () => {
           <div className="p-8 md:p-12">
             {/* Title Section */}
             <div className="text-center mb-16">
+              <AnimatedContent delay={100}>
               <h1 className="text-4xl md:text-6xl font-bold mb-6">Let's Connect</h1>
+              </AnimatedContent>
+              <AnimatedContent delay={200}>
               <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
                 We're always open to bold ideas, fresh collaborations, and great coffee. Drop us a message.
-              </p>
+                </p>
+              </AnimatedContent>
             </div>
 
             {/* Two Column Layout */}
             <div className="grid md:grid-cols-2 gap-12 md:gap-16">
               {/* Left Column - Contact Info */}
               <div>
+                <AnimatedContent delay={300}>
                 <h2 className="text-3xl md:text-4xl font-bold mb-8">Contact us</h2>
+                </AnimatedContent>
                 <div className="space-y-6">
                   <div>
+                    <AnimatedContent delay={400}>
                     <p className="text-gray-300 mb-2">Email:</p>
+                    </AnimatedContent>
+                    <AnimatedContent delay={500}>
                     <p className="text-xl">grafiki@gmail.com</p>
+                    </AnimatedContent>
                   </div>
                   <div>
+                    <AnimatedContent delay={500}>
                     <p className="text-gray-300 mb-2">Phone:</p>
+                    </AnimatedContent>
+                    <AnimatedContent delay={600}>
                     <p className="text-xl">+234 901 512 3876</p>
+                    </AnimatedContent>
                   </div>
                 </div>
               </div>

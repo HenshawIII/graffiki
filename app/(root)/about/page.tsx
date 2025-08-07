@@ -3,6 +3,7 @@
 import React from 'react'
 import People from '../../components/people'
 import Image from 'next/image'
+import AnimatedContent from '@/app/components/AnimatedContent'
 
 const AboutPage = () => {
   return (
@@ -10,12 +11,14 @@ const AboutPage = () => {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Full Screen Header Section */}
       <section className="md:h-screen h-[50vh] flex px-4 pb-20 md:pb-0 items-end justify-start overflow-x-hidden">
+        <AnimatedContent delay={100}>
         <div className="text-left">
           <h1 className="text-4xl lg:text-6xl md:text-[10rem] lg:text-[12rem] font-bold leading-tight">
             Curious <br />
             and Driven.
           </h1>
         </div>
+        </AnimatedContent>
       </section>
 
       {/* Content Sections */}
@@ -25,29 +28,37 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left  md:col-span-2 xl:col-span-1">
+            <AnimatedContent delay={200}>
               <h2 className="whitespace-nowrap  md:text-xl leading-tight text-[#ffffff] font-extrabold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
+              </AnimatedContent>
             </div>
             <div className='col-span-3'>
+            <AnimatedContent delay={300}>
               <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]">
                 We always wonder what's next. Driven by curiosity and ambition, we explore new possibilities in creative coding, motion, sound, AI and create proprietary tech tools ourselves. Only by looking ahead, we can create the best solutions in the now.
               </p>
-            </div>
+              </AnimatedContent>
+                </div>
           </div>
 
           {/* Second Content Block */}
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
+            <AnimatedContent delay={200}>
               <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're a team
               </h2>
+              </AnimatedContent>
             </div>
             <div className='col-span-3'>
+            <AnimatedContent delay={300}>
               <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]"> 
                 We are a group of individual characters that enjoy working together. We have a common spirit that we hold dear. The studio is formed by a diverse group of nationalities, personalities, and specialists; from creative coders to sound designers, project managers, motion designers, strategists and visual designers. Collaboration is at the core of how we work, in the studio and together with clients.
               </p>
+              </AnimatedContent>
             </div>
           </div>
         </div>
@@ -63,14 +74,18 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
+            <AnimatedContent delay={200}>
               <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
               </h2>
+              </AnimatedContent>
             </div>
             <div className='col-span-3'>
+            <AnimatedContent delay={300}>
               <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]">
                 We always wonder what's next. Driven by curiosity and ambition, we explore new possibilities in creative coding, motion, sound, AI and create proprietary tech tools ourselves. Only by looking ahead, we can create the best solutions in the now.
               </p>
+              </AnimatedContent>
             </div>
           </div>
 
@@ -78,14 +93,18 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
+            <AnimatedContent delay={200}>
               <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're a team
               </h2>
+              </AnimatedContent>
             </div>
             <div className='col-span-3'>
+            <AnimatedContent delay={300}>
               <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]">
                 We are a group of individual characters that enjoy working together. We have a common spirit that we hold dear. The studio is formed by a diverse group of nationalities, personalities, and specialists; from creative coders to sound designers, project managers, motion designers, strategists and visual designers. Collaboration is at the core of how we work, in the studio and together with clients.
               </p>
+              </AnimatedContent>
             </div>
           </div>
         </div>
@@ -102,14 +121,18 @@ const AboutPage = () => {
           <div className="grid md:grid-cols-5 gap-16 items-start justify-end">
             <div className='col-span-1 hidden xl:block'></div>
             <div className="xl:text-right text-left md:col-span-2 xl:col-span-1">
+            <AnimatedContent delay={200}>
               <h2 className="whitespace-nowrap md:text-xl leading-tight text-[#ffffff] font-semibold md:no-underline underline underline-offset-8 decoration-yellow-500 decoration-1">
                 We're curious and driven
-              </h2>
+                </h2>
+                </AnimatedContent>
             </div>
             <div className='col-span-3'>
-              <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]">
+            <AnimatedContent delay={300}>
+                <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]">
                 We always wonder what's next. Driven by curiosity and ambition, we explore new possibilities in creative coding, motion, sound, AI and create proprietary tech tools ourselves. Only by looking ahead, we can create the best solutions in the now.
-              </p>
+                </p>
+                </AnimatedContent>
             </div>
           </div>
         </div>

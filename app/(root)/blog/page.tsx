@@ -2,6 +2,7 @@ import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
 import Link from 'next/link';
 import Image from 'next/image';
+import AnimatedContent from '@/app/components/AnimatedContent';
 
 // Define the Post type based on actual schema
 interface Post {
@@ -45,17 +46,23 @@ export default async function BlogPage() {
   const posts = await getPosts();
 
   return (
-    <div className="min-h-screen bg-black text-white pt-24">
+    <div className="min-h-screen bg-black text-white pt-24 flex flex-col">
       {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="flex-1 max-w-7xl mx-auto px-6 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-fahkwang font-bold mb-6">
+          <AnimatedContent delay={100}>
+          <h1 className="text-3xl md:text-5xl  font-bold mb-6">
             The latest from our world and beyond.
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          </AnimatedContent>
+          <AnimatedContent delay={200}>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-fahkwang">
             Read, watch and go deeper on what's happening with us and our work.
-          </p>
+            </p>
+          </AnimatedContent>
         </div>
+
+        <hr className="border-gray-700 my-16" />
 
         {/* Blog Posts Grid */}
         {posts.length > 0 ? (
@@ -63,7 +70,7 @@ export default async function BlogPage() {
             {posts.map((post) => (
               <article key={post._id} className="group">
                 <Link href={`/blog/${post.slug.current}`}>
-                  <div className="bg-gray-900 rounded-lg overflow-hidden transition-all duration-500 hover:bg-gray-800 hover:scale-105">
+                  <div className="  overflow-hidden transition-all duration-500 ">
                     {/* Post Image */}
                     {post.image && (
                       <div className="relative h-48 overflow-hidden">
@@ -77,29 +84,25 @@ export default async function BlogPage() {
                     )}
                     
                     {/* Post Content */}
-                    <div className="p-6">
+                    <div className="py-6">
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm text-[#F4C42E] font-medium">
+                        
+                        <span className="text-sm text-gray-500 font-fahkwang font-medium">
                           {post.category}
                         </span>
-                        {post.views && (
-                          <span className="text-xs text-gray-500">
-                            {post.views} views
-                          </span>
-                        )}
                       </div>
                       
-                      <h2 className="text-xl font-fahkwang font-bold mb-3 group-hover:text-[#F4C42E] transition-colors duration-300">
-                        {post.title}
-                      </h2>
+                      <h2 className="text-xl font-bold mb-3 group-hover:text-[#F4C42E] transition-colors duration-300 flex-1">
+                          {post.title}
+                        </h2>
                       
-                      {post.description && (
-                        <p className="text-gray-400 mb-4 line-clamp-3">
+                      {/* {post.description && (
+                        <p className="text-gray-100 font-fahkwang mb-4 line-clamp-3">
                           {post.description}
                         </p>
-                      )}
+                      )} */}
                       
-                      <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center font-fahkwang justify-between text-sm text-gray-500">
                         <span>{post.author}</span>
                       </div>
                     </div>
@@ -115,6 +118,34 @@ export default async function BlogPage() {
           </div>
         )}
       </div>
+      <footer className="mt-auto bg-black backdrop-blur-md border-t max-h-[100px] border-gray-900">
+        <div className="container mx-auto px-6 py-4 flex items-center  justify-between">
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <Image src="/Logowhite.png" alt="Logo" width={100} height={100} />
+          </div>
+          
+          {/* Social Media Icons */}    
+          <div className="flex items-center space-x-6">
+            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
+             <Image src="/footFb.png" alt="" width={24} height={20} />
+            </a>
+            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
+              {/* <span className="text-xl">🐦</span> */}
+              <Image src={"/footX.png"} alt='X' width={24} height={20}/>
+            </a>
+            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
+              {/* <span className="text-xl">📷</span> */}
+              <Image src={"/footIg.png"} alt='X' width={24} height={20}/>
+            </a>
+          </div>
+          
+          {/* Copyright */}
+          <div className="text-gray-300 hidden md:block">
+            2025 All rights reserved.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

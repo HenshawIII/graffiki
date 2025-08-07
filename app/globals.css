@@ -25,6 +25,16 @@ body {
   font-family: var(--font-riamo), Arial, Helvetica, sans-serif;
 }
 
+/* Hide scroll bars for all browsers */
+* {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
 /* Utility classes for fonts */
 .font-riamo {
   font-family: var(--font-riamo), Arial, Helvetica, sans-serif;
@@ -32,4 +42,20 @@ body {
 
 .font-fahkwang {
   font-family: var(--font-fahkwang), Arial, Helvetica, sans-serif;
+}
+
+/* Custom animations */
+@keyframes ping-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s ease-in-out infinite;
 }
