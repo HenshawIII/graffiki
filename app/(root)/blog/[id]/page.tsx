@@ -154,7 +154,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             {post.content && (
               <div 
                 dangerouslySetInnerHTML={{ __html: htmlContent }} 
-                className="text-gray-300 leading-relaxed space-y-6 prose prose-invert prose-lg max-w-none"
+                className="text-gray-300 font-fahkwang leading-relaxed space-y-6 prose prose-invert prose-lg max-w-none"
               />
             )}
           </div>
