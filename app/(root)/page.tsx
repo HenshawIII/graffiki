@@ -5,14 +5,9 @@ import Image from 'next/image';
 // List of available video filenames with mobile and desktop versions
 const VIDEO_FILES = [
   {
-    mobile: 'grafMob.mp4',
-    desktop: 'grafDesk.mp4',
-    fallback: 'SCL.mp4' // fallback if mobile version doesn't exist
-  },
-  {
-    mobile: 'soloMob.mp4',
-    desktop: 'soloDesk.mp4',
-    fallback: 'solo.mp4'
+    mobile: 'SCL.mp4', // Using existing video4 as mobile version
+    desktop: 'SCL.mp4',
+    fallback: 'SCL.mp4'
   },
   {
     mobile: 'video3.mp4', // Using existing video3 as mobile version
@@ -20,10 +15,16 @@ const VIDEO_FILES = [
     fallback: 'video3.mp4'
   },
   {
-    mobile: 'SCL.mp4', // Using existing video4 as mobile version
-    desktop: 'SCL.mp4',
-    fallback: 'SCL.mp4'
+    mobile: 'soloMob.mp4',
+    desktop: 'soloDesk.mp4',
+    fallback: 'solo.mp4'
   },
+ 
+  {
+    mobile: 'grafMob.mp4',
+    desktop: 'grafDesk.mp4',
+    fallback: 'SCL.mp4' // fallback if mobile version doesn't exist
+  }
 ];
 
 // Example links for each video (customize as needed)
