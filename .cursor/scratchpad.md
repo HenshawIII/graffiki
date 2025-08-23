@@ -8,6 +8,8 @@ The user has created a new document type "work" in Sanity CMS and wants to imple
 2. Each work should be clickable and navigate to `/work/[id]` for individual work details
 3. Follow the same pattern as the existing blog implementation
 
+**NEW REQUEST**: Implement responsive video handling for the landing page where each video will have two versions - one for mobile view and one for desktop view.
+
 ## Key Challenges and Analysis
 
 - Need to create the work listing page (`/work`) similar to blog listing
@@ -44,6 +46,7 @@ The user has created a new document type "work" in Sanity CMS and wants to imple
 - [x] Task 1: Create Work Listing Page
 - [x] Task 2: Create Individual Work Detail Page  
 - [x] Task 3: Add Static Generation Support
+- [x] **NEW**: Implement Responsive Video Handling for Landing Page
 
 ## Current Status / Progress Tracking
 
@@ -54,6 +57,14 @@ The user has created a new document type "work" in Sanity CMS and wants to imple
 **Task 3 Completed**: Added `generateStaticParams` function to the work detail page for static generation support, ensuring better performance.
 
 **Video Support Added**: Updated both work listing and detail pages to support video display. Videos are prioritized over images - if a video is available, it will be displayed; otherwise, the image will be shown. Videos in the listing page are muted and looped, while videos in the detail page have controls and autoplay.
+
+**Responsive Video Implementation Completed**: Successfully implemented responsive video handling for the landing page. Each video now has mobile and desktop versions that automatically switch based on screen size. Features include:
+- Automatic detection of mobile vs desktop viewport
+- Dynamic video source switching using React hooks
+- Fallback to desktop version if mobile version doesn't exist
+- Visual indicator showing which video version is currently displayed
+- Responsive breakpoint at 768px (standard mobile breakpoint)
+- Console logging for debugging purposes
 
 ## Executor's Feedback or Assistance Requests
 
@@ -70,3 +81,24 @@ The user has created a new document type "work" in Sanity CMS and wants to imple
 - **Error Handling**: Implemented proper error handling with `notFound()` for non-existent work items
 - **Video Support**: Added conditional video/image display logic - videos are prioritized over images for better user experience
 - **Video Optimization**: Used appropriate video attributes (muted, loop, playsInline) for listing page and controls/autoplay for detail page
+
+## New Feature Request: Responsive Video Implementation
+
+### Background
+The user wants to implement responsive video handling for the landing page where each video will have two versions:
+- One optimized for mobile view
+- One optimized for desktop view
+
+### Current Implementation Analysis
+- Landing page currently uses a single video file for each section
+- Videos are displayed with `object-cover` class for responsive sizing
+- No conditional logic for different video sources based on screen size
+
+### Implementation Options
+1. **CSS Media Queries**: Use CSS to show/hide different video elements
+2. **React Hooks**: Use `useEffect` and `window.innerWidth` to conditionally render videos
+3. **Next.js Image Component Pattern**: Follow similar responsive image patterns
+4. **HTML5 Picture Element**: Use HTML5 `<picture>` element with `<source>` tags
+
+### Recommended Approach
+Use React hooks with `useEffect` and `window.innerWidth` for the most reliable cross-browser solution, following the pattern used in other parts of the application.
