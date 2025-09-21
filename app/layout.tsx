@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: 'Grafiki Studios',
     images: [
       {
-        url: '/Logowhite.png',
+        url: '/grafLW.png',
         width: 1200,
         height: 630,
         alt: 'Grafiki Studios Logo',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Grafiki Studios - Creative Agency | Brand Strategy & Design',
     description: 'Grafiki Studios is a creative agency dedicated to honoring Afrikan artistry through thoughtful design, branding, and storytelling.',
-    images: ['/Logowhite.png'],
+    images: ['/grafLW.png'],
     creator: '@grafiki_ng',
   },
   robots: {
@@ -82,7 +82,7 @@ export default function RootLayout({
     "name": "Grafiki Studios",
     "description": "A creative agency dedicated to honoring Afrikan artistry through thoughtful design, branding, and storytelling.",
     "url": "https://grafiki.com.ng",
-    "logo": "https://grafiki.com.ng/Logowhite.png",
+    "logo": "https://grafiki.com.ng/grafLW.png",
     "foundingDate": "2020",
     "address": {
       "@type": "PostalAddress",
