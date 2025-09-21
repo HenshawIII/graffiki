@@ -94,7 +94,7 @@ export default function HomeClient() {
           
           <a
             href={VIDEO_LINKS[idx]?.href || '#'}
-            className="absolute text-xl bottom-6 right-6 bg-transparent text-white px-6 py-3  font-bold hover:text-black hover:bg-yellow-500 transition-colors duration-300"
+            className="absolute text-xl bottom-6 right-6 bg-transparent text-white px-6 py-3  font-bold hover:text-black hover:bg-yellow-500 transition-colors duration-700"
             target={VIDEO_LINKS[idx]?.href?.startsWith('http') ? '_blank' : undefined}
             rel={VIDEO_LINKS[idx]?.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
           >
