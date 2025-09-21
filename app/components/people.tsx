@@ -26,7 +26,7 @@ const PEOPLE_DATA = [
   {
     id: 3,
     name: "Oyewole Lawal",
-    role: "Photo Director (Studio)",
+    role: "Photo Editor (Studio)",
     image: "/Wole.jpg"
   },
 
@@ -51,17 +51,7 @@ const PEOPLE_DATA = [
 ]
 
 // Create extended data by duplicating the array twice
-const EXTENDED_PEOPLE_DATA = [
-  ...PEOPLE_DATA,
-  ...PEOPLE_DATA.map(person => ({
-    ...person,
-    id: person.id + 6 // Ensure unique IDs
-  })),
-  ...PEOPLE_DATA.map(person => ({
-    ...person,
-    id: person.id + 12 // Ensure unique IDs
-  }))
-]
+
 
 const People = () => {
   const scrollRef = useRef<HTMLDivElement>(null)
