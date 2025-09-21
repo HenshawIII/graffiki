@@ -108,13 +108,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           height: 630,
           alt: post.title,
         },
-      ] : ['/Logowhite.png'],
+      ] : ['/grafLogo.png'],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description || `Read ${post.title} on Grafiki Studios blog.`,
-      images: post.image ? [post.image.asset.url] : ['/Logowhite.png'],
+      images: post.image ? [post.image.asset.url] : ['/grafLogo.png'],
     },
     alternates: {
       canonical: `/blog/${id}`,

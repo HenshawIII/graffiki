@@ -48,7 +48,7 @@ const ContactClient = () => {
             </header>
 
             {/* Two Column Layout */}
-            <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
               {/* Left Column - Contact Info */}
               <section>
                 <AnimatedContent delay={300}>
@@ -101,7 +101,7 @@ const ContactClient = () => {
               {/* Right Column - Contact Form */}
               <section>
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 sr-only">Send us a message</h2>
-                <form className="space-y-6">
+                <form className="space-y-6 max-w-2xl mx-auto">
                   <div>
                     <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
                     <input

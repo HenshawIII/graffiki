@@ -7,39 +7,46 @@ import Image from 'next/image'
 const PEOPLE_DATA = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=600&fit=crop"
+    name: "Adeoluwa Henshaw",
+    role: "Art Director",
+    image: "/Adeoluwa.jpg"
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Lead Developer",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
-  },
-  {
-    id: 3,
-    name: "Emma Rodriguez",
-    role: "Motion Designer",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=600&fit=crop"
+    name: "Amarachika Emele-Ralph",
+    role: "Managing Editor",
+    image: "/Amara.jpg"
   },
   {
     id: 4,
-    name: "David Kim",
-    role: "Sound Designer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=600&fit=crop"
+    name: "Olatunbosun Sampson",
+    role: "Creative Director (Studio)",
+    image: "/Bosun.jpg"
   },
   {
+    id: 3,
+    name: "Oyewole Lawal",
+    role: "Photo Director (Studio)",
+    image: "/Wole.jpg"
+  },
+
+  {
     id: 5,
-    name: "Lisa Thompson",
-    role: "Project Manager",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=600&fit=crop"
+    name: "Ogonna Onuabuchi",
+    role: "Design Associate (Architecture)",
+    image: "/Ogonna.jpg"
   },
   {
     id: 6,
-    name: "Alex Martinez",
-    role: "Visual Designer",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=600&fit=crop"
+    name: "Sharon Adeigbe",
+    role: "Editorial Ops Intern",
+    image: "/sharon.jpg"
+  },
+  {
+    id: 7,
+    name: "Akande Oni",
+    role: "Design Intern",
+    image: "/Akande.jpg"
   }
 ]
 
@@ -116,11 +123,11 @@ const People = () => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="flex space-x-1 px-6 py-8 min-w-max select-none">
-          {EXTENDED_PEOPLE_DATA.map((person) => (
+        <div className="flex gap-1 px-6 py-8 min-w-max select-none">
+          {PEOPLE_DATA.map((person) => (
             <div
               key={person.id}
-              className="flex-shrink-0 w-[50vw] md:w-[35vw] max-h-[50vh] lg:max-h-[100vh] lg:w-[25vw] xl:w-[20vw] flex flex-col"
+              className="flex-shrink-0 w-[50vw]  md:w-[35vw] max-h-[50vh] lg:max-h-[60vh] xl:max-h-[70vh] lg:w-[35vw] xl:w-[20vw] flex flex-col"
               style={{ height: containerHeight }}
             >
               {/* Card Container */}
@@ -143,7 +150,7 @@ const People = () => {
                   <h3 className="text-2xl md:text-4xl font-bold text-white mb-2">
                     {person.name}
                   </h3>
-                  <p className="text-lg md:text-xl text-gray-200">
+                  <p className="text-lg md:text-xl text-gray-200 font-fahkwang">
                     {person.role}
                   </p>
                 </div>

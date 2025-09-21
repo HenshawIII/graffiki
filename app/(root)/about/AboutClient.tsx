@@ -162,7 +162,7 @@ const AboutClient = () => {
 
 
       <AnimatedContent delay={300}>
-      <div className='md:text-4xl text-2xl max-w-5xl text-left leading-relaxed p-6  bg-black font-fahkwang font-bold overflow-x-hidden'>
+      <div className='md:text-4xl mb-20 text-2xl max-w-5xl text-left leading-relaxed p-6  bg-black font-fahkwang font-bold overflow-x-hidden'>
       We are proud to have an intentional team and a broad network of creatives whose contributions amplify our vision. Grafiki projects benefit from this shared commitment.
       </div>
       </AnimatedContent>

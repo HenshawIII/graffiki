@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: work.title,
+    title: `${work.title} - Work`,
     description: `Explore ${work.title} - A creative project by Grafiki Studios. Discover our latest work in brand strategy, visual identity, and design.`,
     openGraph: {
       title: work.title,
