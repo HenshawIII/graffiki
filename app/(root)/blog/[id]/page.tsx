@@ -1,10 +1,9 @@
+import { Metadata } from 'next';
 import { client } from '@/sanity/lib/client';
 import { writeClient } from '@/sanity/lib/writeClient';
 import { groq } from 'next-sanity';
-import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import markdownit from 'markdown-it';
+import BlogContent from './BlogContent';
 
 // Define the Post type based on actual schema
 interface Post {
@@ -24,7 +23,6 @@ interface Post {
   _createdAt: string;
 }
 
-const md = new markdownit();
 
 // Fetch a single post by slug
 async function getPost(slug: string): Promise<Post | null> {
@@ -81,6 +79,49 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
+// Generate metadata for each blog post
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const post = await getPost(id);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested blog post could not be found.',
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.description || `Read ${post.title} on Grafiki Studios blog - A creative agency dedicated to honoring Afrikan artistry.`,
+    openGraph: {
+      title: post.title,
+      description: post.description || `Read ${post.title} on Grafiki Studios blog.`,
+      url: `https://grafiki.com.ng/blog/${id}`,
+      type: 'article',
+      publishedTime: post._createdAt,
+      authors: [post.author],
+      images: post.image ? [
+        {
+          url: post.image.asset.url,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ] : ['/Logowhite.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description || `Read ${post.title} on Grafiki Studios blog.`,
+      images: post.image ? [post.image.asset.url] : ['/Logowhite.png'],
+    },
+    alternates: {
+      canonical: `/blog/${id}`,
+    },
+  };
+}
+
 export default async function BlogPostPage({ params }: PageProps) {
   const { id } = await params;
   const post = await getPost(id);
@@ -91,126 +132,6 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   // Increment view count
   await incrementViews(post._id, post.views || 0);
-  
-  // Render markdown content
-  const htmlContent = md.render(post.content || '');
 
-  return (
-    <div className="min-h-screen bg-black text-white pt-24 flex flex-col">
-      <div className="flex-1 max-w-4xl mx-auto px-6 py-16">
-        {/* Back to Blog Link */}
-        {/* <Link 
-          href="/blog" 
-          className="inline-flex items-center text-[#F4C42E] hover:text-white transition-colors duration-300 mb-8"
-        >
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to Blog
-        </Link> */}
-
-        {/* Article Header */}
-        <article>
-
-        {post.image && (
-            <div className="relative h-96 md:h-[500px] mb-4  overflow-hidden">
-              <Image
-                src={post.image.asset.url}
-                alt={post.title}
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-          )}
-
-          <header className="mb-24">
-            
-            <div className="flex items-center font-fahkwang justify-between text-gray-400 mb-4">
-              <div className="flex items-center space-x-4">
-                <span className=" font-medium">{post.author}</span>
-              </div>
-              <p className="text-sm  leading-relaxed">
-                {new Date(post._createdAt).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </p>
-            </div>
-            
-
-            <h1 className="text-3xl md:text-4xl lg:text-5xl  font-bold  leading-tight">
-              {post.title}
-            </h1>
-            
-          </header>
-
-          {/* Featured Image */}
-         
-
-          {/* Article Body */}
-          <div className="prose prose-invert prose-lg max-w-none">
-            {post.content && (
-              <div 
-                dangerouslySetInnerHTML={{ __html: htmlContent }} 
-                className="text-gray-300 font-fahkwang leading-relaxed space-y-6 prose prose-invert prose-lg max-w-none"
-              />
-            )}
-          </div>
-        </article>
-
-                 {/* Back to Blog Button */}
-         {/* <div className="mt-16 pt-8 border-t border-gray-800"> */}
-           {/* <Link 
-             href="/blog" 
-             className="inline-flex items-center px-6 py-3 bg-[#F4C42E] text-black font-fahkwang font-bold rounded-lg hover:bg-white transition-colors duration-300"
-           >
-             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-             </svg>
-             Back to Blog
-           </Link> */}
-         {/* </div> */}
-
-                   {/* Fixed View Counter */}
-          <div className="fixed bottom-18 right-6 z-40">
-            <div className="bg-black/80 backdrop-blur-md border border-gray-700 rounded-full px-4 py-2 flex items-center space-x-2 animate-ping-slow">
-              <div className="w-2 h-2 bg-[#F4C42E] rounded-full animate-pulse"></div>
-              <span className="text-white text-sm font-fahkwang font-medium">
-                {(post.views || 0) + 1} {(post.views || 0) + 1 === 1 ? 'view' : 'views'}
-              </span>
-            </div>
-          </div>
-        </div>
-        <footer className="mt-auto bg-black backdrop-blur-md border-t max-h-[100px] border-gray-900">
-        <div className="container mx-auto px-6 py-4 flex items-center  justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <Image src="/Logowhite.png" alt="Logo" width={100} height={100} />
-          </div>
-          
-          {/* Social Media Icons */}    
-          <div className="flex items-center space-x-6">
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
-             <Image src="/footFb.png" alt="" width={24} height={20} />
-            </a>
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
-              {/* <span className="text-xl">🐦</span> */}
-              <Image src={"/footX.png"} alt='X' width={24} height={20}/>
-            </a>
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
-              {/* <span className="text-xl">📷</span> */}
-              <Image src={"/footIg.png"} alt='X' width={24} height={20}/>
-            </a>
-          </div>
-          
-          {/* Copyright */}
-          <div className="text-gray-300 hidden md:block">
-            2025 All rights reserved.
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
+  return <BlogContent post={post} />;
 }

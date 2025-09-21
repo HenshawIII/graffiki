@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
 import Image from 'next/image';
@@ -60,6 +61,48 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
+// Generate metadata for each work item
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const work = await getWork(id);
+
+  if (!work) {
+    return {
+      title: 'Work Not Found',
+      description: 'The requested work project could not be found.',
+    };
+  }
+
+  return {
+    title: work.title,
+    description: `Explore ${work.title} - A creative project by Grafiki Studios. Discover our latest work in brand strategy, visual identity, and design.`,
+    openGraph: {
+      title: work.title,
+      description: `Explore ${work.title} - A creative project by Grafiki Studios.`,
+      url: `https://grafiki.com.ng/work/${id}`,
+      type: 'article',
+      publishedTime: work._createdAt,
+      images: work.image ? [
+        {
+          url: work.image.asset.url,
+          width: 1200,
+          height: 630,
+          alt: work.title,
+        },
+      ] : ['/Logowhite.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: work.title,
+      description: `Explore ${work.title} - A creative project by Grafiki Studios.`,
+      images: work.image ? [work.image.asset.url] : ['/Logowhite.png'],
+    },
+    alternates: {
+      canonical: `/work/${id}`,
+    },
+  };
+}
+
 export default async function WorkDetailPage({ params }: PageProps) {
   const { id } = await params;
   const work = await getWork(id);
@@ -80,10 +123,11 @@ export default async function WorkDetailPage({ params }: PageProps) {
             <div className="relative h-96 md:h-[500px] mb-4 overflow-hidden">
               <Image
                 src={work.image.asset.url}
-                alt={work.title}
+                alt={`${work.title} - Creative project by Grafiki Studios`}
                 fill
                 className="object-contain"
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               />
             </div>
           )}
@@ -122,19 +166,21 @@ export default async function WorkDetailPage({ params }: PageProps) {
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <Image src="/Logowhite.png" alt="Logo" width={100} height={100} />
+            <Image src="/Logowhite.png" alt="Grafiki Studios Logo" width={100} height={100} />
           </div>
           
           {/* Social Media Icons */}    
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
-             <Image src="/footFb.png" alt="" width={24} height={20} />
+          <a href="https://www.linkedin.com/company/grafikidesignng" target='_blank' rel='noopener noreferrer' className="text-white hover:text-yellow-400 transition-colors pb-1">
+             <Image src="/link1.png" alt="LinkedIn - Grafiki Studios" width={24} height={24} />
             </a>
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
-              <Image src={"/footX.png"} alt='X' width={24} height={20}/>
+            <a href="https://x.com/grafiki_ng" target='_blank' rel='noopener noreferrer' className="text-white hover:text-yellow-400 transition-colors">
+              {/* <span className="text-xl">🐦</span> */}
+              <Image src={"/footX.png"} alt='X (Twitter) - Grafiki Studios' width={24} height={20}/>
             </a>
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
-              <Image src={"/footIg.png"} alt='X' width={24} height={20}/>
+            <a href="https://www.instagram.com/grafiki_ng?igsh=c2Y5NGN2dm5uaDUx" target='_blank' rel='noopener noreferrer' className="text-white hover:text-yellow-400 transition-colors">
+              {/* <span className="text-xl">📷</span> */}
+              <Image src={"/footIg.png"} alt='Instagram - Grafiki Studios' width={24} height={20}/>
             </a>
           </div>
           

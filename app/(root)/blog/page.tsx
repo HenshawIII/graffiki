@@ -1,8 +1,35 @@
+import { Metadata } from 'next';
 import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Read the latest insights from Grafiki Studios - A creative agency dedicated to honoring Afrikan artistry. Explore our thoughts on design, branding, and creative storytelling.',
+  openGraph: {
+    title: 'Blog - Grafiki Studios Creative Agency',
+    description: 'Read the latest insights from Grafiki Studios - A creative agency dedicated to honoring Afrikan artistry. Explore our thoughts on design, branding, and creative storytelling.',
+    url: 'https://graffikistudios.com/blog',
+    images: [
+      {
+        url: '/Logowhite.png',
+        width: 1200,
+        height: 630,
+        alt: 'Blog - Grafiki Studios Creative Agency',
+      },
+    ],
+  },
+  twitter: {
+    title: 'Blog - Grafiki Studios Creative Agency',
+    description: 'Read the latest insights from Grafiki Studios - A creative agency dedicated to honoring Afrikan artistry. Explore our thoughts on design, branding, and creative storytelling.',
+    images: ['/Logowhite.png'],
+  },
+  alternates: {
+    canonical: '/blog',
+  },
+};
 
 // Define the Post type based on actual schema
 interface Post {
@@ -76,9 +103,11 @@ export default async function BlogPage() {
                       <div className="relative h-48 overflow-hidden">
                         <Image
                           src={post.image.asset.url}
-                          alt={post.title}
+                          alt={`${post.title} - Blog post by Grafiki Studios`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          loading="lazy"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                       </div>
                     )}
@@ -122,21 +151,21 @@ export default async function BlogPage() {
         <div className="container mx-auto px-6 py-4 flex items-center  justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <Image src="/Logowhite.png" alt="Logo" width={100} height={100} />
+            <Image src="/Logowhite.png" alt="Grafiki Studios Logo" width={100} height={100} />
           </div>
           
           {/* Social Media Icons */}    
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
-             <Image src="/footFb.png" alt="" width={24} height={20} />
+               <a href="https://www.linkedin.com/company/grafikidesignng" target='_blank' rel='noopener noreferrer' className="text-white hover:text-yellow-400 transition-colors pb-1">
+             <Image src="/link1.png" alt="LinkedIn - Grafiki Studios" width={24} height={24} />
             </a>
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
+            <a href="https://x.com/grafiki_ng" target='_blank' rel='noopener noreferrer' className="text-white hover:text-yellow-400 transition-colors">
               {/* <span className="text-xl">🐦</span> */}
-              <Image src={"/footX.png"} alt='X' width={24} height={20}/>
+              <Image src={"/footX.png"} alt='X (Twitter) - Grafiki Studios' width={24} height={20}/>
             </a>
-            <a href="#" className="text-white hover:text-yellow-400 transition-colors">
+            <a href="https://www.instagram.com/grafiki_ng?igsh=c2Y5NGN2dm5uaDUx" target='_blank' rel='noopener noreferrer' className="text-white hover:text-yellow-400 transition-colors">
               {/* <span className="text-xl">📷</span> */}
-              <Image src={"/footIg.png"} alt='X' width={24} height={20}/>
+              <Image src={"/footIg.png"} alt='Instagram - Grafiki Studios' width={24} height={20}/>
             </a>
           </div>
           

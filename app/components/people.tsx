@@ -106,7 +106,7 @@ const People = () => {
   }
 
   return (
-    <div className="mt-12 w-full bg-black text-white overflow-x-hidden">
+    <div className="my-12  w-full bg-black text-white overflow-x-hidden">
       {/* Horizontal Scroller Container */}
       <div 
         ref={scrollRef}

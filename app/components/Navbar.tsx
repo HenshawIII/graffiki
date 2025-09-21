@@ -50,7 +50,7 @@ const Navbar = () => {
           <Link href="/">
           <Image
             src="/Logowhite.png"
-            alt="Logo"
+            alt="Grafiki Logo"
             width={150}
             height={150}
             className="mr-2"
@@ -83,7 +83,7 @@ const Navbar = () => {
           <Link href="/">
           <Image
             src="/Logowhite.png"
-            alt="Logo"
+            alt="GrafikiLogo"
             width={150}
             height={150}
             className="mr-2"
