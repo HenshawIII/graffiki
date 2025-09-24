@@ -47,7 +47,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   `
   
-  const blogPosts = await client.fetch(blogQuery)
+  const blogPosts = await client.fetch(blogQuery, {
+    next: { revalidate: 60 }
+  })
   const blogPages = blogPosts.map((post: { slug: { current: string }, _updatedAt: string }) => ({
     url: `${baseUrl}/blog/${post.slug.current}`,
     lastModified: new Date(post._updatedAt),
@@ -63,7 +65,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   `
   
-  const workItems = await client.fetch(workQuery)
+  const workItems = await client.fetch(workQuery, {
+    next: { revalidate: 60 }
+  })
   const workPages = workItems.map((work: { slug: { current: string }, _updatedAt: string }) => ({
     url: `${baseUrl}/work/${work.slug.current}`,
     lastModified: new Date(work._updatedAt),

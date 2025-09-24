@@ -39,7 +39,10 @@ async function getWork(slug: string): Promise<Work | null> {
     }
   `;
   
-  return client.fetch(query, { slug });
+  return client.fetch(query, { 
+    slug,
+    next: { revalidate: 60 } // Revalidate every 60 seconds
+  });
 }
 
 // Fetch all work slugs for static generation

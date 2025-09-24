@@ -45,7 +45,10 @@ async function getPost(slug: string): Promise<Post | null> {
     }
   `;
   
-  return client.fetch(query, { slug });
+  return client.fetch(query, { 
+    slug,
+    next: { revalidate: 60 } // Revalidate every 60 seconds
+  });
 }
 
 // Increment view count for a post
