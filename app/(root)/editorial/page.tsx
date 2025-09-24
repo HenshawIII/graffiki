@@ -6,28 +6,28 @@ import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Editorial',
   description: 'Read the latest insights from Grafiki Studios - A creative agency dedicated to honoring Afrikan artistry. Explore our thoughts on design, branding, and creative storytelling.',
   openGraph: {
-    title: 'Blog - Grafiki Studios Creative Agency',
+    title: 'Editorial - Grafiki Studios Creative Agency',
     description: 'Read the latest insights from Grafiki Studios - A creative agency dedicated to honoring Afrikan artistry. Explore our thoughts on design, branding, and creative storytelling.',
-    url: 'https://graffikistudios.com/blog',
+    url: 'https://graffikistudios.com/editorial',
     images: [
       {
         url: '/Logowhite.png',
         width: 1200,
         height: 630,
-        alt: 'Blog - Grafiki Studios Creative Agency',
+        alt: 'Editorial - Grafiki Studios Creative Agency',
       },
     ],
   },
   twitter: {
-    title: 'Blog - Grafiki Studios Creative Agency',
+    title: 'Editorial - Grafiki Studios Creative Agency',
     description: 'Read the latest insights from Grafiki Studios - A creative agency dedicated to honoring Afrikan artistry. Explore our thoughts on design, branding, and creative storytelling.',
     images: ['/Logowhite.png'],
   },
   alternates: {
-    canonical: '/blog',
+    canonical: '/editorial',
   },
 };
 
@@ -98,7 +98,7 @@ export default async function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <article key={post._id} className="group">
-                <Link href={`/blog/${post.slug.current}`}>
+                <Link href={`/editorial/${post.slug.current}`}>
                   <div className="  overflow-hidden transition-all duration-500 ">
                     {/* Post Image */}
                     {post.image && (

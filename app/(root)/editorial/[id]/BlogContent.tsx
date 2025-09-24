@@ -62,7 +62,7 @@ export default function BlogContent({ post }: BlogContentProps) {
           )}
 
           <header className="mb-24">
-            <div className={`flex items-center font-fahkwang justify-between mb-4 ${
+            <div className={`flex flex-col-reverse md:flex-row items-start md:items-center font-fahkwang justify-between mb-4 ${
               isDarkMode ? 'text-gray-300' : 'text-gray-800'
             }`}>
               <div className="flex items-center space-x-4">

@@ -87,17 +87,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) {
     return {
       title: 'Post Not Found',
-      description: 'The requested blog post could not be found.',
+      description: 'The requested editorial post could not be found.',
     };
   }
 
   return {
     title: post.title,
-    description: post.description || `Read ${post.title} on Grafiki Studios blog - A creative agency dedicated to honoring Afrikan artistry.`,
+    description: post.description || `Read ${post.title} on Grafiki Studios Editorial - A creative agency dedicated to honoring Afrikan artistry.`,
     openGraph: {
       title: post.title,
-      description: post.description || `Read ${post.title} on Grafiki Studios blog.`,
-      url: `https://grafiki.com.ng/blog/${id}`,
+      description: post.description || `Read ${post.title} on Grafiki Studios editorial.`,
+      url: `https://grafiki.com.ng/editorial/${id}`,
       type: 'article',
       publishedTime: post._createdAt,
       authors: [post.author],
@@ -113,11 +113,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.description || `Read ${post.title} on Grafiki Studios blog.`,
+      description: post.description || `Read ${post.title} on Grafiki Studios Editorial.`,
       images: post.image ? [post.image.asset.url] : ['/grafLogo.png'],
     },
     alternates: {
-      canonical: `/blog/${id}`,
+      canonical: `/editorial/${id}`,
     },
   };
 }

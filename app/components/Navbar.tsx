@@ -30,7 +30,7 @@ const Navbar = () => {
   const navLinks = [
     { href: '/work', label: 'Our Work' },
     { href: '/about', label: 'About Us' },
-    { href: '/blog', label: 'Editorial' },
+    { href: '/editorial', label: 'Editorial' },
     { href: '/contact', label: 'Contact Us' },
   ];
 
