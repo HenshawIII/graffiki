@@ -39,10 +39,7 @@ async function getWork(slug: string): Promise<Work | null> {
     }
   `;
   
-  return client.fetch(query, { 
-    slug,
-    next: { revalidate: 60 } // Revalidate every 60 seconds
-  });
+  return client.fetch(query, { slug });
 }
 
 // Fetch all work slugs for static generation
@@ -105,6 +102,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
   };
 }
+
+export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function WorkDetailPage({ params }: PageProps) {
   const { id } = await params;

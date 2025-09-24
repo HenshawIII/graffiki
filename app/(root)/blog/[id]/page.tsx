@@ -45,10 +45,7 @@ async function getPost(slug: string): Promise<Post | null> {
     }
   `;
   
-  return client.fetch(query, { 
-    slug,
-    next: { revalidate: 60 } // Revalidate every 60 seconds
-  });
+  return client.fetch(query, { slug });
 }
 
 // Increment view count for a post
@@ -124,6 +121,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
   };
 }
+
+export const revalidate = 60; // Revalidate every 60 seconds
 
 export default async function BlogPostPage({ params }: PageProps) {
   const { id } = await params;
