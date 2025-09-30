@@ -1,38 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
 
 export default function SCLClient() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Function to check if screen is mobile
-    const checkIfMobile = () => {
-      const width = window.innerWidth;
-      const mobileBreakpoint = 768;
-      setIsMobile(width <= mobileBreakpoint);
-    };
-
-    // Check on initial load
-    checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-
-    // Cleanup event listener
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
-  // Function to get the appropriate video source
-  const getVideoSource = () => {
-    const basePath = '/videos/';
-    if (isMobile) {
-      return basePath + 'mobScl.mp4'; // Mobile version
-    }
-    return basePath + 'SCL.mp4'; // Desktop version
-  };
-
+ 
   return (
     <>
     <div className="min-h-screen bg-black text-white  flex flex-col py-6 px-6 xl:px-24">
@@ -107,7 +78,7 @@ export default function SCLClient() {
               
               {/* Image 2 */}
               <AnimatedContent delay={500}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9]  overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/SCL/2.png"
                   alt="SCL Brand Identity - Application"
@@ -119,7 +90,7 @@ export default function SCLClient() {
               </AnimatedContent>
               {/* Image 3 */}
               <AnimatedContent delay={500}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9]  overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/SCL/3.png"
                   alt="SCL Brand Identity - Stationery"
@@ -131,7 +102,7 @@ export default function SCLClient() {
               </AnimatedContent>
               {/* Image 4 */}
               <AnimatedContent delay={500}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9]  overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/SCL/4.png"
                   alt="SCL Brand Identity - Digital Application"
@@ -143,7 +114,7 @@ export default function SCLClient() {
               </AnimatedContent>
               {/* Image 5 */}
               <AnimatedContent delay={600}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9]  overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/SCL/5.png"
                   alt="SCL Brand Identity - Brand Guidelines"
@@ -155,7 +126,7 @@ export default function SCLClient() {
               </AnimatedContent>
               {/* Image 6 */}
               <AnimatedContent delay={600}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9]  overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/SCL/6.png"
                   alt="SCL Brand Identity - Final Applications"

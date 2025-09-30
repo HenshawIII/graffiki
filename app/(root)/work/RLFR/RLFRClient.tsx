@@ -4,34 +4,7 @@ import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
 
 export default function RLFRClient() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Function to check if screen is mobile
-    const checkIfMobile = () => {
-      const width = window.innerWidth;
-      const mobileBreakpoint = 768;
-      setIsMobile(width <= mobileBreakpoint);
-    };
-
-    // Check on initial load
-    checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-
-    // Cleanup event listener
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
-  // Function to get the appropriate video source
-  const getVideoSource = () => {
-    const basePath = '/videos/';
-    if (isMobile) {
-      return basePath + 'mobRLFR.mp4'; // Mobile version
-    }
-    return basePath + 'RLFR pc.mp4'; // Desktop version
-  };
+ 
 
   return (
     <>
@@ -70,7 +43,7 @@ export default function RLFRClient() {
           <div className="">
             <AnimatedContent delay={400}>
               <div className="space-y-6">
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/RLFR/1.png"
                     alt="Redlight Fashion Room - EDM Fashion Rave Branding"
@@ -104,7 +77,7 @@ export default function RLFRClient() {
             <div className="space-y-6">
               {/* Image 2 */}
               <AnimatedContent delay={500}>
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/RLFR/2.png"
                     alt="Redlight Fashion Room - Event Campaign Design"
@@ -117,7 +90,7 @@ export default function RLFRClient() {
               
               {/* Image 3 */}
               <AnimatedContent delay={500}>
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/RLFR/3_.png"
                     alt="Redlight Fashion Room - Lady Donli Performance Collaboration"

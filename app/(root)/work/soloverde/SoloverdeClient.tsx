@@ -1,37 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react';
+
 import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
 
 export default function SoloverdeClient() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Function to check if screen is mobile
-    const checkIfMobile = () => {
-      const width = window.innerWidth;
-      const mobileBreakpoint = 768;
-      setIsMobile(width <= mobileBreakpoint);
-    };
-
-    // Check on initial load
-    checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-
-    // Cleanup event listener
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
-  // Function to get the appropriate video source
-  const getVideoSource = () => {
-    const basePath = '/videos/';
-    if (isMobile) {
-      return basePath + 'mobSoloverde.mp4'; // Mobile version
-    }
-    return basePath + 'Solo verde pc.mp4'; // Desktop version
-  };
 
   return (
     <>
@@ -73,7 +45,7 @@ export default function SoloverdeClient() {
             <AnimatedContent delay={400}>
               <div className="space-y-6">
                 {/* Image 1 */}
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/Solo verde/1.png"
                     alt="Soloverde Farm - Brand Identity Design"
@@ -85,7 +57,7 @@ export default function SoloverdeClient() {
                 </div>
                 
                 {/* Image 2 */}
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/Solo verde/2.png"
                     alt="Soloverde Farm - Agricultural Branding"
@@ -96,7 +68,7 @@ export default function SoloverdeClient() {
                 </div>
                 
                 {/* Image 3 */}
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/Solo verde/3.png"
                     alt="Soloverde Farm - Visual Identity Application"
@@ -129,7 +101,7 @@ export default function SoloverdeClient() {
             <div className="space-y-6">
               {/* Image 4 */}
               <AnimatedContent delay={500}>
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/Solo verde/4.png"
                     alt="Soloverde Farm - Cassava-Inspired Design"
@@ -142,7 +114,7 @@ export default function SoloverdeClient() {
               
               {/* Image 5 */}
               <AnimatedContent delay={500}>
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/Solo verde/5.png"
                     alt="Soloverde Farm - Sustainable Agriculture Branding"

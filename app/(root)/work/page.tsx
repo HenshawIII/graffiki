@@ -79,7 +79,7 @@ const works: Work[] = [
     id: 'smi',
     title: 'SMI',
     slug: 'smi',
-    video: '/Smi/SmiMobile.mp4', // Optional video
+    video: '/Smi/SmiMobile.MP4', // Optional video
   },
 ];
 

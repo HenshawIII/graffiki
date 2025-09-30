@@ -1,37 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react';
+
 import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
 
 export default function AyoIbileClient() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Function to check if screen is mobile
-    const checkIfMobile = () => {
-      const width = window.innerWidth;
-      const mobileBreakpoint = 768;
-      setIsMobile(width <= mobileBreakpoint);
-    };
-
-    // Check on initial load
-    checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-
-    // Cleanup event listener
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
-  // Function to get the appropriate video source
-  const getVideoSource = () => {
-    const basePath = '/videos/';
-    if (isMobile) {
-      return basePath + 'mobAyoIbile.mp4'; // Mobile version
-    }
-    return basePath + 'Ayo Ibile Pc.mp4'; // Desktop version
-  };
 
   return (
     <>
@@ -41,7 +13,7 @@ export default function AyoIbileClient() {
         <div className="">
           <AnimatedContent delay={500}>
             <div className="space-y-6">
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/Ayo Ibile/3.png"
                   alt="Ayo Ibile - Visual Identity Design"
@@ -74,7 +46,7 @@ export default function AyoIbileClient() {
           <AnimatedContent delay={400}>
             <div className="space-y-6">
               {/* Image 1 */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/Ayo Ibile/1.png"
                   alt="Ayo Ibile - Photography Exhibition Setup"
@@ -86,7 +58,7 @@ export default function AyoIbileClient() {
               </div>
               
               {/* Image 2 */}
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/Ayo Ibile/2.png"
                   alt="Ayo Ibile - Street Exhibition Display"
@@ -140,7 +112,7 @@ export default function AyoIbileClient() {
         <div className="">
           <AnimatedContent delay={500}>
             <div className="space-y-6">
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[3/2] overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/Ayo Ibile/4.png"
                   alt="Ayo Ibile - Community Integration"
@@ -173,7 +145,7 @@ export default function AyoIbileClient() {
           <div className="space-y-6">
             {/* Image 5 */}
             <AnimatedContent delay={500}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/Ayo Ibile/5.png"
                   alt="Ayo Ibile - Street Art Exhibition"
@@ -186,7 +158,7 @@ export default function AyoIbileClient() {
             
             {/* Image 6 */}
             <AnimatedContent delay={500}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/Ayo Ibile/6.png"
                   alt="Ayo Ibile - Community Engagement"
@@ -199,7 +171,7 @@ export default function AyoIbileClient() {
             
             {/* Image 7 */}
             <AnimatedContent delay={600}>
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+              <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
                   src="/Ayo Ibile/7.png"
                   alt="Ayo Ibile - Final Exhibition View"

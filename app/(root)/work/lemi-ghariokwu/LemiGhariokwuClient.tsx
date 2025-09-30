@@ -1,37 +1,8 @@
 'use client'
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
 
 export default function LemiGhariokwuClient() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Function to check if screen is mobile
-    const checkIfMobile = () => {
-      const width = window.innerWidth;
-      const mobileBreakpoint = 768;
-      setIsMobile(width <= mobileBreakpoint);
-    };
-
-    // Check on initial load
-    checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-
-    // Cleanup event listener
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
-  // Function to get the appropriate video source
-  const getVideoSource = () => {
-    const basePath = '/videos/';
-    if (isMobile) {
-      return basePath + 'mobLemiGhariokwu.mp4'; // Mobile version
-    }
-    return basePath + 'Lemi Ghariokwu pc.mp4'; // Desktop version
-  };
 
   return (
     <>
@@ -57,7 +28,7 @@ export default function LemiGhariokwuClient() {
           <div className="">
             <AnimatedContent delay={400}>
               <div className="">
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[3/2] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/Lemi in ghana/1.png"
                     alt="Lemi Ghariokwu in Ghana - Event Branding Design"
@@ -86,7 +57,7 @@ export default function LemiGhariokwuClient() {
         </section>
 
         {/* Hero Video Section */}
-        <section className="xl:h-screen mt-1 relative overflow-hidden">
+        <section className="xl:h-screen mt-1 mb-6 relative overflow-hidden">
           <video
             src={'/Lemi in ghana/1 Video.mp4'}
             className="w-full h-full object-cover"
@@ -116,7 +87,7 @@ export default function LemiGhariokwuClient() {
           <div className="">
             <AnimatedContent delay={500}>
               <div className="space-y-6">
-                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] overflow-hidden group">
+                <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
                     src="/Lemi in ghana/2.png"
                     alt="Lemi Ghariokwu in Ghana - Final Event Visuals"

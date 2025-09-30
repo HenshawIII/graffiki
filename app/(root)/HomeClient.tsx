@@ -32,9 +32,9 @@ const VIDEO_FILES = [
 
 // Example links for each video (customize as needed)
 const VIDEO_LINKS = [
-  { href: '/work/stretches-contractors', label: 'View SCL' },
-  { href: '/work/smi', label: 'View SoloVerde' },
-  { href: '/work/grafiki-studios', label: 'View Ayò Ibílè' },
+  { href: '/work/stretches-contracting', label: 'View SCL' },
+  { href: '/work/soloverde', label: 'View SoloVerde' },
+  { href: '/work/ayo-ibile', label: 'View Ayò Ibílè' },
   { href: '/about', label: 'Learn More' },
 ];
 

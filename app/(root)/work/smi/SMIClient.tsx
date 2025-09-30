@@ -1,37 +1,8 @@
 'use client'
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
 
 export default function SMIClient() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Function to check if screen is mobile
-    const checkIfMobile = () => {
-      const width = window.innerWidth;
-      const mobileBreakpoint = 768;
-      setIsMobile(width <= mobileBreakpoint);
-    };
-
-    // Check on initial load
-    checkIfMobile();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-
-    // Cleanup event listener
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
-
-  // Function to get the appropriate video source
-  const getVideoSource = () => {
-    const basePath = '/videos/';
-    if (isMobile) {
-      return basePath + 'mobSMI.mp4'; // Mobile version
-    }
-    return basePath + 'SMI pc.mp4'; // Desktop version
-  };
 
   return (
     <>

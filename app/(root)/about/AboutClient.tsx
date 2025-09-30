@@ -98,7 +98,7 @@ const AboutClient = () => {
             <div className='col-span-3'>
             <AnimatedContent delay={300}>
               <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]"> 
-              Our process is deliberate.We design to convey the rich narrative you envision for your brand, making your work matter to us as much as it matters to you. When you entrust us with your work, you can be confident that your vision will be realized in an impactful way.
+              Our process is deliberate. We design to convey the rich narrative you envision for your brand, making your work matter to us as much as it matters to you. When you entrust us with your work, you can be confident that your vision will be realized in an impactful way.
               </p>
               </AnimatedContent>
             </div>
