@@ -22,7 +22,7 @@ const AboutClient = () => {
     // Function to check if screen is mobile
     const checkIfMobile = () => {
       const width = window.innerWidth;
-      const mobileBreakpoint = 768;
+      const mobileBreakpoint = 767;
       setIsMobile(width <= mobileBreakpoint);
     };
 

@@ -113,7 +113,7 @@ const People = () => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="flex gap-1 px-6 py-8 min-w-max select-none">
+        <div className="flex gap-1 px-0 py-8 min-w-max select-none">
           {PEOPLE_DATA.map((person) => (
             <div
               key={person.id}

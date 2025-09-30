@@ -55,21 +55,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }))
 
-  // Fetch work items
-  const workQuery = groq`
-    *[_type == "work"] | order(_createdAt desc) {
-      slug,
-      _updatedAt
-    }
-  `
-  
-  const workItems = await client.fetch(workQuery)
-  const workPages = workItems.map((work: { slug: { current: string }, _updatedAt: string }) => ({
-    url: `${baseUrl}/work/${work.slug.current}`,
-    lastModified: new Date(work._updatedAt),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  // Static work pages
+  const workPages = [
+    {
+      url: `${baseUrl}/work/stretches-contractors`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/work/smi`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/work/grafiki-studios`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    // Add more static work pages as needed
+  ]
 
   return [...staticPages, ...blogPages, ...workPages]
 }

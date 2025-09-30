@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-import { client } from '@/sanity/lib/client';
-import { groq } from 'next-sanity';
 import Link from 'next/link';
 import Image from 'next/image';
 import AnimatedContent from '@/app/components/AnimatedContent';
@@ -31,53 +29,61 @@ export const metadata: Metadata = {
   },
 };
 
-// Define the Work type based on actual schema
+// Define the Work type for static content
 interface Work {
-  _id: string;
+  id: string;
   title: string;
-  slug: { current: string };
-  image: {
-    asset: {
-      url: string;
-    };
-  };
-  video?: {
-    asset: {
-      url: string;
-    };
-  };
-  content?: string;
+  slug: string;
+  image?: string;
+  video?: string;
 }
 
-// Fetch works from Sanity
-async function getWorks(): Promise<Work[]> {
-  const query = groq`
-    *[_type == "work"] | order(_createdAt desc) {
-      _id,
-      title,
-      slug,
-      image {
-        asset-> {
-          url
-        }
-      },
-      video {
-        asset-> {
-          url
-        }
-      },
-      content
-    }
-  `;
+// Static work data - add your work items here
+const works: Work[] = [
+  {
+    id: 'ayo-ibile',
+    title: 'Ayò Ibílè',
+    slug: 'ayo-ibile',
+   // image: '/work/grafiki-studios.jpg', // Add your image path
+    video: '/videos/mobbile.mp4', // Optional video
+  },
   
-  return client.fetch(query);
-}
+  {
+    id: 'smi',
+    title: 'Solo Verde',
+    slug: 'soloverde',
+   // image: '/work/smi.jpg',  Add your image path
+    video: '/videos/SoloMobNe.mp4', // Optional video
+  },
+  {
+    id: 'stretches-contractors',
+    title: 'SCL',
+    slug: 'stretches-contracting',
+   // image: '/work/stretches-contractors.jpg', // Add your image path
+    video: '/videos/EditSCL.mp4',
+  },
+  // Add more work items as needed
+  {
+    id: 'red-light',
+    title: 'Red Light',
+    slug: 'RLFR',
+    video: '/RLFR/Preview vid.mp4', // Optional video
+  },
+  {
+    id: 'lemi-ghana',
+    title: 'Lemi Ghariokwu',
+    slug: 'lemi-ghariokwu',
+    video: '/Lemi in ghana/LGIG Anim.mp4', // Optional video
+  },
+  {
+    id: 'smi',
+    title: 'SMI',
+    slug: 'smi',
+    video: '/Smi/SmiMobile.mp4', // Optional video
+  },
+];
 
-export const revalidate = 60; // Revalidate every 60 seconds
-
-export default async function WorkPage() {
-  const works = await getWorks();
-  console.log(works);
+export default function WorkPage() {
 
   return (
     <div className="min-h-screen bg-black text-white pt-24 flex flex-col">
@@ -102,42 +108,40 @@ export default async function WorkPage() {
         {works.length > 0 ? (
           <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:gap-2 gap-4">
             {works.map((work) => (
-              <article key={work._id} className="group h-full">
-                <Link href={`/work/${work.slug.current}`}>
-                                     <div className="overflow-hidden h-full transition-all duration-500">
-                     {/* Work Video or Image */}
-                     {work.video ? (
-                       <div className="relative xl:h-screen md:h-[45vh] h-[50vh] overflow-hidden">
-                         <video
-                           src={work.video.asset.url}
-                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                           muted
-                           loop
-                           autoPlay
-                           playsInline
-                           aria-label={`${work.title} - Video showcase by Grafiki Studios`}
-                         />
-                       </div>
-                     ) : work.image && (
-                       <div className="relative xl:h-screen md:h-[45vh] h-[50vh] overflow-hidden">
-                         <Image
-                           src={work.image.asset.url}
-                           alt={`${work.title} - Creative project by Grafiki Studios`}
-                           fill
-                           className="object-cover transition-transform duration-500 group-hover:scale-110"
-                           loading="lazy"
-                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                         />
-                       </div>
-                     )}
+              <article key={work.id} className="group h-full">
+                <Link href={`/work/${work.slug}`}>
+                  <div className="overflow-hidden h-full transition-all duration-500">
+                    {/* Work Video or Image */}
+                    {work.video ? (
+                      <div className="relative xl:h-screen md:h-[45vh] h-[50vh] overflow-hidden">
+                        <video
+                          src={work.video}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          muted
+                          loop
+                          autoPlay
+                          playsInline
+                          aria-label={`${work.title} - Video showcase by Grafiki Studios`}
+                        />
+                      </div>
+                    ) : work.image && (
+                      <div className="relative xl:h-screen md:h-[45vh] h-[50vh] overflow-hidden">
+                        <Image
+                          src={work.image}
+                          alt={`${work.title} - Creative project by Grafiki Studios`}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          loading="lazy"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
+                    )}
                     
                     {/* Work Content */}
                     <div className="py-6">
                       <h2 className="text-xl font-bold mb-3 group-hover:text-[#F4C42E] transition-colors duration-300">
                         {work.title}
                       </h2>
-                      
-                     
                     </div>
                   </div>
                 </Link>
