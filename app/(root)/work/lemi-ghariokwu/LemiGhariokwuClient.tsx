@@ -30,7 +30,7 @@ export default function LemiGhariokwuClient() {
               <div className="">
                 <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
-                    src="/Lemi in ghana/1.png"
+                    src="/Lemi in ghana/1.jpg"
                     alt="Lemi Ghariokwu in Ghana - Event Branding Design"
                     fill
                     className="object-cover transition-transform duration-500"
@@ -89,7 +89,7 @@ export default function LemiGhariokwuClient() {
               <div className="space-y-6">
                 <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
-                    src="/Lemi in ghana/2.png"
+                    src="/Lemi in ghana/2.jpg"
                     alt="Lemi Ghariokwu in Ghana - Final Event Visuals"
                     fill
                     className="object-cover transition-transform duration-500"

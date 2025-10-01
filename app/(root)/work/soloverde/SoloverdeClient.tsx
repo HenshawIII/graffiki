@@ -16,7 +16,7 @@ export default function SoloverdeClient() {
             <AnimatedContent delay={300}>
               <div className="text-left mb-16">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-8">
-                  Soloverde Farm
+                  Soloverde Farms
                 </h2>
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed max-w-4xl font-fahkwang">
                   Owing to our strong interest in agriculture, we approached Soloverde Farms, a youth-led farm in Ibadan. During our conversation with its founder, he was candid about the challenges of running a farm in Nigeria today. Following that conversation, it became clear that our role was to translate that spirit into a visual identity that embodied the resilience required for growth.

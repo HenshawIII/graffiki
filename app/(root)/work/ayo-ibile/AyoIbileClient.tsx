@@ -15,7 +15,7 @@ export default function AyoIbileClient() {
             <div className="space-y-6">
               <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
-                  src="/Ayo Ibile/3.png"
+                  src="/Ayo Ibile/3.jpg"
                   alt="Ayo Ibile - Visual Identity Design"
                   fill
                   className="object-cover transition-transform duration-500"
@@ -48,7 +48,7 @@ export default function AyoIbileClient() {
               {/* Image 1 */}
               <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
-                  src="/Ayo Ibile/1.png"
+                  src="/Ayo Ibile/1.jpg"
                   alt="Ayo Ibile - Photography Exhibition Setup"
                   fill
                   className="object-cover transition-transform duration-500"
@@ -60,7 +60,7 @@ export default function AyoIbileClient() {
               {/* Image 2 */}
               <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
-                  src="/Ayo Ibile/2.png"
+                  src="/Ayo Ibile/2.jpg"
                   alt="Ayo Ibile - Street Exhibition Display"
                   fill
                   className="object-cover transition-transform duration-500"
@@ -114,7 +114,7 @@ export default function AyoIbileClient() {
             <div className="space-y-6">
               <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
-                  src="/Ayo Ibile/4.png"
+                  src="/Ayo Ibile/4.jpg"
                   alt="Ayo Ibile - Community Integration"
                   fill
                   className="object-cover transition-transform duration-500"
@@ -147,7 +147,7 @@ export default function AyoIbileClient() {
             <AnimatedContent delay={500}>
               <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
-                  src="/Ayo Ibile/5.png"
+                  src="/Ayo Ibile/5.jpg"
                   alt="Ayo Ibile - Street Art Exhibition"
                   fill
                   className="object-cover transition-transform duration-500"
@@ -160,7 +160,7 @@ export default function AyoIbileClient() {
             <AnimatedContent delay={500}>
               <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
-                  src="/Ayo Ibile/6.png"
+                  src="/Ayo Ibile/6.jpg"
                   alt="Ayo Ibile - Community Engagement"
                   fill
                   className="object-cover transition-transform duration-500"
@@ -173,7 +173,7 @@ export default function AyoIbileClient() {
             <AnimatedContent delay={600}>
               <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                 <Image
-                  src="/Ayo Ibile/7.png"
+                  src="/Ayo Ibile/7.jpg"
                   alt="Ayo Ibile - Final Exhibition View"
                   fill
                   className="object-cover transition-transform duration-500"

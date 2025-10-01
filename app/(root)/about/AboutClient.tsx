@@ -122,7 +122,7 @@ const AboutClient = () => {
             <div className='col-span-3'>
             <AnimatedContent delay={300}>
               <p className="text-lg md:text-xl leading-relaxed text-[#ffffff]">
-              Grafiki believes that design should make you feel at home. Our logo, the Sankofa bird, represents this mission. Sankofa, based on Akan tradition, teaches that the future is stronger when we build on past wisdom and our history and remember who we truly are.
+              Grafiki believes that design should make you feel at home. Our logo, the Sankofa bird, represents this mission. Sankofa, based on Akan tradition, teaches that the future is stronger when we build on past wisdom and remember who we truly are.
               </p>
               </AnimatedContent>
             </div>

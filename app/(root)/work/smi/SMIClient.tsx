@@ -71,7 +71,7 @@ export default function SMIClient() {
         {/* Hero Video Section */}
         <section className="xl:h-screen mt-1 mb-6 relative overflow-hidden">
           <video
-            src={"/Smi/1 Video.mp4"}
+            src={"/Smi/1 video.mp4"}
             className="w-full h-full object-cover"
             autoPlay
             loop

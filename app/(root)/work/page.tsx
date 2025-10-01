@@ -50,7 +50,7 @@ const works: Work[] = [
   
   {
     id: 'smi',
-    title: 'Solo Verde',
+    title: 'Soloverde Farms',
     slug: 'soloverde',
    // image: '/work/smi.jpg',  Add your image path
     video: '/videos/SoloMobNe.mp4', // Optional video
@@ -65,19 +65,19 @@ const works: Work[] = [
   // Add more work items as needed
   {
     id: 'red-light',
-    title: 'Red Light',
+    title: 'Red Light Fashion Room',
     slug: 'RLFR',
-    video: '/RLFR/Preview vid.mp4', // Optional video
+    video: '/RLFR/Preview vidd.mp4', // Optional video
   },
   {
     id: 'lemi-ghana',
-    title: 'Lemi Ghariokwu',
+    title: 'Lemi Ghariokwu in Ghana',
     slug: 'lemi-ghariokwu',
     video: '/Lemi in ghana/LGIG Anim.mp4', // Optional video
   },
   {
     id: 'smi',
-    title: 'SMI',
+    title: 'SMI\'s World',
     slug: 'smi',
     video: '/Smi/SmiMobile.MP4', // Optional video
   },

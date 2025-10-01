@@ -45,7 +45,7 @@ export default function RLFRClient() {
               <div className="space-y-6">
                 <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
-                    src="/RLFR/1.png"
+                    src="/RLFR/1.jpg"
                     alt="Redlight Fashion Room - EDM Fashion Rave Branding"
                     fill
                     className="object-cover transition-transform duration-500"
@@ -79,7 +79,7 @@ export default function RLFRClient() {
               <AnimatedContent delay={500}>
                 <div className="relative w-full aspect-[3/2]  overflow-hidden group">
                   <Image
-                    src="/RLFR/2.png"
+                    src="/RLFR/2.jpg"
                     alt="Redlight Fashion Room - Event Campaign Design"
                     fill
                     className="object-cover transition-transform duration-500"
