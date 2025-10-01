@@ -61,7 +61,7 @@ export default function BlogContent({ post }: BlogContentProps) {
             </div>
           )}
 
-          <header className="mb-24">
+          <header className="mb-9 ">
             <div className={`flex flex-col-reverse md:flex-row items-start md:items-center font-fahkwang justify-between mb-4 ${
               isDarkMode ? 'text-gray-300' : 'text-gray-800'
             }`}>
@@ -77,7 +77,7 @@ export default function BlogContent({ post }: BlogContentProps) {
               </p>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-2 leading-tight">
               {post.title}
             </h1>
           </header>
