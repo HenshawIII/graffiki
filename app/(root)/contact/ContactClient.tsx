@@ -3,10 +3,118 @@
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import AnimatedContent from '@/app/components/AnimatedContent'
+import emailjs from '@emailjs/browser'
 
 const ContactClient = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipText, setTooltipText] = useState('');
+  
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  
+  // Form submission state
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
+  
+  // Form validation errors
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  
+  // EmailJS configuration
+  const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_50tgqws';
+  const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_6jeou1q';
+  const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'iW5UoFek4IKyF4CrD';
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, [EMAILJS_PUBLIC_KEY]);
+
+  // Form validation
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitMessage('');
+    
+    try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        to_email: 'info@grafiki.com.ng'
+      };
+      
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      console.log(result);
+      if (result.status === 200) {
+        setSubmitStatus('success');
+        setSubmitMessage('Thank you! Your message has been sent successfully.');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setSubmitStatus('error');
+      setSubmitMessage('Sorry, there was an error sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -38,7 +146,7 @@ const ContactClient = () => {
             {/* Title Section */}
             <header className="text-center mb-16">
               <AnimatedContent delay={100}>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">Let's Connect</h1>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 font-riamo">Let's Connect</h1>
               </AnimatedContent>
               <AnimatedContent delay={200}>
               <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
@@ -52,7 +160,7 @@ const ContactClient = () => {
               {/* Left Column - Contact Info */}
               <section>
                 <AnimatedContent delay={300}>
-                <h2 className="text-3xl md:text-4xl font-bold mb-8">Contact us</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 font-riamo">Contact us</h2>
                 </AnimatedContent>
                 <div className="space-y-6">
                   <div>
@@ -62,11 +170,11 @@ const ContactClient = () => {
                     <AnimatedContent delay={500}>
                     <div className="relative inline-block">
                       <a 
-                        href="mailto:grafikidesign.ng@gmail.com" 
+                        href="mailto:info@grafiki.com.ng" 
                         className="text-xl hover:text-yellow-400 transition-colors duration-300"
                       
                       >
-                        grafikidesign.ng@gmail.com
+                        info@grafiki.com.ng
                       </a>
                     </div>
                     </AnimatedContent>
@@ -101,15 +209,40 @@ const ContactClient = () => {
               {/* Right Column - Contact Form */}
               <section>
                 <h2 className="text-3xl md:text-4xl font-bold mb-8 sr-only">Send us a message</h2>
-                <form className="space-y-6 max-w-2xl mx-auto">
+                
+                {/* Success/Error Messages */}
+                {submitStatus === 'success' && (
+                  <div className="mb-6 p-4 bg-[#098A50] text-white ">
+                    {submitMessage}
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mb-6 p-4 bg-[#EA4042] text-white ">
+                    {submitMessage}
+                  </div>
+                )}
+                
+                <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
                   <div>
                     <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
                     <input
                       type="text"
                       id="name"
-                      className="w-full px-4 py-3 bg-transparent border border-white focus:outline-none focus:border-yellow-400 transition-colors"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 bg-transparent border transition-colors focus:outline-none ${
+                        errors.name 
+                          ? 'border-red-500 focus:border-red-500' 
+                          : 'border-white focus:border-yellow-400'
+                      }`}
                       placeholder="Your name"
+                      disabled={isSubmitting}
                     />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    )}
                   </div>
                   
                   <div>
@@ -117,26 +250,53 @@ const ContactClient = () => {
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-3 bg-transparent border border-white  focus:outline-none focus:border-yellow-400 transition-colors"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 bg-transparent border transition-colors focus:outline-none ${
+                        errors.email 
+                          ? 'border-red-500 focus:border-red-500' 
+                          : 'border-white focus:border-yellow-400'
+                      }`}
                       placeholder="your@email.com"
+                      disabled={isSubmitting}
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                    )}
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-gray-300 mb-2">Your Message</label>
                     <textarea
                       id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={6}
-                      className="w-full px-4 py-3 bg-transparent border border-white  focus:outline-none focus:border-yellow-400 transition-colors resize-none"
+                      className={`w-full px-4 py-3 bg-transparent border transition-colors focus:outline-none resize-none ${
+                        errors.message 
+                          ? 'border-red-500 focus:border-red-500' 
+                          : 'border-white focus:border-yellow-400'
+                      }`}
                       placeholder="Tell us about your project..."
+                      disabled={isSubmitting}
                     />
+                    {errors.message && (
+                      <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                    )}
                   </div>
                   
                   <button
                     type="submit"
-                    className="w-full bg-yellow-400 text-black font-bold py-4 px-8  hover:bg-yellow-300 transition-colors text-lg"
+                    disabled={isSubmitting}
+                    className={`w-full font-bold py-4 px-8 transition-colors text-lg ${
+                      isSubmitting
+                        ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                        : 'bg-yellow-400 text-black hover:bg-yellow-300'
+                    }`}
                   >
-                    SEND
+                    {isSubmitting ? 'SENDING...' : 'SEND'}
                   </button>
                 </form>
               </section>
