@@ -9,6 +9,8 @@
 
 import { NextStudio } from 'next-sanity/studio'
 import config from '../../../sanity.config'
+// Import CSS for markdown editor
+import 'easymde/dist/easymde.min.css'
 
 export const dynamic = 'force-static'
 
